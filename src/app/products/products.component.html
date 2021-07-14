@@ -1,0 +1,38 @@
+<div class="flex">
+  <h2>Quản lý sản phẩm</h2>
+</div>
+
+<!-- ================== ===== -->
+<table class="table mt-5" [ngClass]="myClass">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Ảnh</th>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Tình trạng</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; index as i">
+      <td>{{ i + 1 }}</td>
+      <td><img [src]="product.img" width="50" /></td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.status ? "Còn hàng" : "Hết hàng" }}</td>
+      <td>{{ product.desc }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="removeItem(product.id)">
+          Delete
+        </button>
+        <button class="btn btn-info ms-1" (click)="detailItem(product)">
+          Detail
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- <div *ngIf="data">
+  <app-product-detail [product]="data"></app-product-detail>
+</div> -->
